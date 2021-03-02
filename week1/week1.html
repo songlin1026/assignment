@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week1 Wu Song-Lin</title>
+</head>
+<style type="text/css">
+    body{
+        font-size: 20px;
+        padding: 0px 0px 0px 0px ;
+        margin: 0px 0px 0px 0px;
+    }
+    header{
+        display: flex;
+        justify-content: space-between;
+        background-color: #E6E9EA ;
+        height: 30px;
+        padding: 10px;
+        line-height: 30px;
+        /* border: 1px solid black; */
+       
+    }
+
+    .rightBox{
+        display: flex;
+        
+
+    }
+    .item{
+        flex:none;
+        text-align: right;
+        margin: 0px 10px 0px 10px;
+
+        }
+    .topBar{
+        height: 300px;
+        width:100%;
+        background-color: #C6E0E7  ;
+        align-content: center;
+    }
+    .hello{
+        text-align: center;
+        line-height: 300px;
+        font-size: 40px;
+        
+    }
+    .content{
+        width: 1200px;
+        margin-top: 10px;
+        text-align: center;
+        margin-left:auto;
+        margin-right: auto;
+    }
+    .box{
+        width: 280px;
+        margin: 5px;
+        
+        /* BOX 左右上下對齊 */
+        display: inline-block;
+        vertical-align: top
+
+        
+    }
+    .photoTitle{
+        padding: 10px 0px 10px 0px;
+        /* border-top: 1px solid gray; */
+        background: #C6E0E7 ;
+        
+    }
+    @media screen and (min-width: 1200px) {
+        .ham{
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 600px) and (max-width: 1200px) {
+        .content{
+            width:90%;
+        }
+        .box{
+            width:45%;
+        }
+        .ham{
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .content{
+            width:90%;
+        }
+        .box{
+            width:90%;
+        }
+        .rightBox{
+            /* display: none; */
+            background-image: url("hamburger.png");
+        }
+        .item{
+            display: none;
+        }
+        .ham{
+            display: block;
+        }
+        
+    }
+</style>
+<body>
+    <header>
+        <div class="leftBox">My Website</div>
+        <div class="rightBox" >
+            <div class="item">Item 1</div>
+            <div class="item">Item 2</div>
+            <div class="item">Item 3</div>
+            <div class="item">Item 4</div>
+            <div class="ham" ><img src="hamburger.png" width="30px"></div>
+        </div>
+    </header>
+
+    <div class="topBar">
+        <div class="hello">Welcome to MyHome</div>
+    </div>
+
+    <div class="content">
+    <div class="box">
+        <div class="photo" ><img src="week1photo-1.jpg" width="100%"></img></div>
+        <div class="photoTitle">吸花女孩</div>
+    </div>
+
+    <div class="box">
+        <div class="photo"><img src="week1photo-2.jpg" width="100%"></img></div>
+        <div class="photoTitle">秋意</div>
+    </div>
+
+    <div class="box">
+        <div class="photo"><img src="week1photo-3.jpg" width="100%"></img></div>
+        <div class="photoTitle">草原之馬</div>
+    </div>
+
+    <div class="box">
+        <div class="photo"><img src="week1photo-4.jpg" width="100%"></img></div>
+        <div class="photoTitle">親情</div>
+    </div>
+
+    <div class="box">
+        <div class="photo"><img src="week1photo-5.jpg" width="100%"></img></div>
+        <div class="photoTitle">山中之湖</div>
+    </div>
+
+    <div class="box">
+        <div class="photo"><img src="week1photo-6.jpg" width="100%"></img></div>
+        <div class="photoTitle">愜意</div>
+    </div>
+
+    <div class="box">
+        <div class="photo"><img src="week1photo-7.jpg" width="100%"></img></div>
+        <div class="photoTitle">狗</div>
+    </div>
+
+    <div class="box">
+        <div class="photo"><img src="week1photo-8.jpg" width="100%"></img></div>
+        <div class="photoTitle">雪山</div>
+    </div>
+
+    </div>  
+    
+</body>
+</html>
