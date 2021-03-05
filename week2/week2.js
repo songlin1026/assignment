@@ -101,11 +101,56 @@ function twoSum(nums, target){
     console.log(result) // show [0, 2] because nums[0]+nums[2] is 9
 
 
-//要求五
+// 要求五
 
-// function maxZeros(nums){
-// // 請用你的程式補完這個函式的區塊
-// }
-// maxZeros([0, 1, 0, 0]) // 得到 2
-// maxZeros([1, 0, 0, 0, 0, 1, 0, 1, 0, 0]) // 得到 4
-// maxZeros([1, 1, 1, 1, 1]) // 得到 0
+function maxZeros(nums){
+// 請用你的程式補完這個函式的區塊
+    a=0 
+    b=0  
+    c=[]
+    d=0
+while (b<nums.length){
+    if (nums[b]<1){
+        b+=1
+        a+=1
+
+        if (b>=nums.length){
+            c.push(parseInt(a)) //
+            break
+        }}
+    else{
+        c.push(parseInt(a)) //
+        a=0
+        b+=1
+    }
+    
+}
+f=0 
+e=0 
+g=c.length-1
+if (c.length==1){
+    console.log(c[0])
+}else{
+    while (e<g){
+        if (c[e]>c[e+1]){
+            if (f>c[e]){
+                e+=1
+            }else{
+                f=c[e]
+                e+=1
+            }    
+        }else{
+            if (f>c[e+1]){
+                e+=1
+            }else{
+                f=c[e+1]
+                e+=1
+            }
+        }
+    }
+    console.log(f)
+}
+}
+maxZeros([0, 1, 0, 0]) // 得到 2
+maxZeros([1, 0, 0, 0, 0, 1, 0, 1, 0, 0]) // 得到 4
+maxZeros([1, 1, 1, 1, 1]) // 得到 0

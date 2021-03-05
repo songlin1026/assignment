@@ -87,9 +87,48 @@ def twoSum(nums, target):
 result=twoSum([2, 11, 7, 15], 9)
 print(result) # show [0, 2] because nums[0]+nums[2] is 9
 
-# #要求五
-# def maxZeros(nums):
-# # 請用你的程式補完這個函式的區塊
-# maxZeros([0, 1, 0, 0]) # 得到 2
-# maxZeros([1, 0, 0, 0, 0, 1, 0, 1, 0, 0]) # 得到 4
-# maxZeros([1, 1, 1, 1, 1]) # 得到 0
+#要求五
+def maxZeros(nums):
+    # 請用你的程式補完這個函式的區塊
+    a=0 #計算0數量
+    b=0  #陣列項目
+    c=[]
+    d=0
+    while b<len(nums):
+        if nums[b]<1:
+            b+=1
+            a+=1
+
+            if b>=len(nums):
+                c.append(int(a))
+                break
+        else:
+            c.append(int(a))
+            a=0
+            b+=1
+
+    f=0 #最大數
+    e=0 #項目數
+    g=len(c)-1
+    if len(c)==1:
+        print(c[0])
+    else:
+        while e<g:
+            if c[e]>c[e+1]:
+                if f>c[e]:
+                    e+=1
+                else:
+                    f=c[e]
+                    e+=1
+                    
+            else:
+                if f>c[e+1]:
+                    e+=1
+                else:
+                    f=c[e+1]
+                    e+=1
+        print(f)
+
+maxZeros([0, 1, 0, 0]) # 得到 2
+maxZeros([1, 0, 0, 0, 0, 1, 0, 1, 0, 0]) # 得到 4
+maxZeros([1, 1, 1, 1, 1]) # 得到 0
