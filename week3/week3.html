@@ -82,7 +82,14 @@
         
     }
     img{
+        object-fit: cover;
+        width: 100%;
         vertical-align:text-bottom;
+    }
+
+    button{
+        margin: 50px 0px 50px 0px;
+        padding: 20px 40px 20px 40px;
     }
     @media screen and (min-width: 1200px) {
         .ham{
@@ -103,8 +110,7 @@
         .photoFrame{
         overflow:hidden;
         height: 158px;
-        
-    }
+        }
     }
 
     @media screen and (max-width: 600px) {
@@ -144,52 +150,106 @@
         <div class="hello">Welcome to MyHome</div>
     </div>
 
-    <div class="content">
-    <div class="box">
-        <div class="photoFrame"><img id="img1" src="" width="100%"></img></div> 
-        <div class="photoTitle" id="phototext1"></div>
-    </div>
+    <div class="content" id="content">
+        <div class="box">
+            <div class="photoFrame"><img id="img1" src="" width="100%"></img></div> 
+            <div class="photoTitle" id="phototext1"></div>
+        </div>
 
-    <div class="box">
-        <div class="photoFrame"> <img id="img2" src="" width="100%"></img></div>
-        <div class="photoTitle" id="phototext2"></div>
-    </div>
+        <div class="box">
+            <div class="photoFrame"> <img id="img2" src="" width="100%"></img></div>
+            <div class="photoTitle" id="phototext2"></div>
+        </div>
 
-    <div class="box">
-        <div class="photoFrame"> <img id="img3" src="" width="100%"></img></div>
-        <div class="photoTitle" id="phototext3"></div>
-    </div>
+        <div class="box">
+            <div class="photoFrame"> <img id="img3" src="" width="100%"></img></div>
+            <div class="photoTitle" id="phototext3"></div>
+        </div>
 
-    <div class="box">
-        <div class="photoFrame"> <img id="img4" src="" width="100%"></img></div>
-        <div class="photoTitle" id="phototext4"></div>
-    </div>
+        <div class="box">
+            <div class="photoFrame"> <img id="img4" src="" width="100%"></img></div>
+            <div class="photoTitle" id="phototext4"></div>
+        </div>
 
-    <div class="box">
-        <div class="photoFrame"> <img id="img5" src="" width="100%"></img></div>
-        <div class="photoTitle" id="phototext5"></div>
-    </div>
+        <div class="box">
+            <div class="photoFrame"> <img id="img5" src="" width="100%"></img></div>
+            <div class="photoTitle" id="phototext5"></div>
+        </div>
 
-    <div class="box">
-        <div class="photoFrame"> <img id="img6" src="" width="100%"></img></div>
-        <div class="photoTitle" id="phototext6"></div>
-    </div>
+        <div class="box">
+            <div class="photoFrame"> <img id="img6" src="" width="100%"></img></div>
+            <div class="photoTitle" id="phototext6"></div>
+        </div>
 
-    <div class="box">
-        <div class="photoFrame"> <img id="img7" src="" width="100%"></img></div>
-        <div class="photoTitle" id="phototext7"></div>
-    </div>
+        <div class="box">
+            <div class="photoFrame"> <img id="img7" src="" width="100%"></img></div>
+            <div class="photoTitle" id="phototext7"></div>
+        </div>
 
-    <div class="box">
-        <div class="photoFrame"> <img id="img8" src="" width="100%"></img></div>
-        <div class="photoTitle" id="phototext8"></div>
+        <div class="box">
+            <div class="photoFrame"> <img id="img8" src="" width="100%"></img></div>
+            <div class="photoTitle" id="phototext8"></div>
+        </div>
+
+
+    </div>  
+    <div style="text-align:center;">
+        <button class="click" onclick="addContent()">Load more</button> 
     </div>
+</div>
+
 
     
 </body>
 </html>
 <script type="text/javascript">
-// document.body.onload = getdata(2);
+var boxNumber=8
+var whileNumber=16
+function addContent(){
+    var req=new XMLHttpRequest();
+    req.open("get","https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json");
+    req.onload=function(){
+        
+        var jsonData=JSON.parse(this.responseText);//
+
+        while (boxNumber<whileNumber){
+            var boxDiv=document.createElement("div");
+            boxDiv.classList.add("box");
+
+            var photoFrame=document.createElement("div");
+            photoFrame.classList.add("photoFrame");
+
+            var photoTitle=document.createElement("div");
+            photoTitle.classList.add("photoTitle");
+            
+
+
+            var content=document.getElementById("content");
+            content.appendChild(boxDiv);
+            boxDiv.appendChild(photoFrame);
+            boxDiv.appendChild(photoTitle);
+
+            var newContent9 = document.createTextNode(jsonData.result.results[boxNumber].stitle);
+            photoTitle.appendChild(newContent9)
+
+            var photoFile=jsonData.result.results[boxNumber].file
+            var keyword="http"
+            var wordNumber=photoFile.indexOf(keyword,1)
+
+            var newImg = document.createElement("img");
+            photoFrame.appendChild(newImg);
+            newImg.setAttribute('src', photoFile.substring(0,wordNumber));
+            boxNumber=boxNumber+1;
+        }
+        whileNumber=whileNumber+8
+
+
+
+    }
+    console.log("123")
+    req.send();
+};
+
 function getdata(){
     
     var req=new XMLHttpRequest();
@@ -327,5 +387,5 @@ function getdata(){
     
 }
 
-// var currentDiv = document.getElementById("div1"); //創div
+
 </script>
