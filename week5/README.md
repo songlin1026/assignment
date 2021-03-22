@@ -25,24 +25,24 @@ ORDER BY `time` DESC;
 
 ![image](https://user-images.githubusercontent.com/73087725/111947359-464f2500-8b18-11eb-9a3d-a632441cca8e.png)
 
-5.
+5-
 SELECT * FROM `website`.`user` 
 WHERE `id`=2 OR `id`=3 OR `id`=4 
 ORDER BY `time` DESC;
 
 ![image](https://user-images.githubusercontent.com/73087725/111947797-13596100-8b19-11eb-9795-0edb73f29c4c.png)
 
-6.
+6-
 SELECT * FROM `website`.`user` WHERE `username`='ply' ;
 
 ![image](https://user-images.githubusercontent.com/73087725/111948060-8367e700-8b19-11eb-868e-53877734d92f.png)
 
-7.
+7-
 SELECT * FROM `website`.`user` WHERE `username`='ply' AND `password`='ply';
 
 ![image](https://user-images.githubusercontent.com/73087725/111948237-d346ae00-8b19-11eb-9451-7c5c0b968cfc.png)
 
-8.
+8-
 UPDATE `website`.`user` SET `name`='丁滿' WHERE `username`='ply';
 ![image](https://user-images.githubusercontent.com/73087725/111948627-68e23d80-8b1a-11eb-87f0-5da2bbc6ba80.png)
 ![image](https://user-images.githubusercontent.com/73087725/111948686-80212b00-8b1a-11eb-9b8c-eacea06cb6e6.png)
