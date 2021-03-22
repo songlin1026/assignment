@@ -26,3 +26,4 @@ SELECT * FROM `website`.`user`
 WHERE `id`=2 OR `id`=3 OR `id`=4 
 ORDER BY `time` DESC;
 ![image](https://user-images.githubusercontent.com/73087725/111947797-13596100-8b19-11eb-9795-0edb73f29c4c.png)
+
