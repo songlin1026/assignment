@@ -1,5 +1,5 @@
 # assignment
-1.
+1-
 INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply','ply');
 INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply2','ply2');
 INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply3','ply3');
@@ -9,17 +9,17 @@ INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply5','ply5');
 ![image](https://user-images.githubusercontent.com/73087725/111946843-44389680-8b17-11eb-8607-d7198ac4abdf.png)
 
 
-2.
+2-
 SELECT * FROM `website`.`user`;
 
 ![image](https://user-images.githubusercontent.com/73087725/111946875-531f4900-8b17-11eb-8152-786ee47f4c99.png)
 
-3.
+3-
 SELECT COUNT(*) FROM `website`.`user`;
 
 ![image](https://user-images.githubusercontent.com/73087725/111946695-f0c64880-8b16-11eb-99f4-d10669bad80b.png)
 
-4.
+4-
 SELECT * FROM `website`.`user` 
 ORDER BY `time` DESC;
 
