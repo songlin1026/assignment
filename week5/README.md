@@ -1,5 +1,5 @@
 # assignment
-1-
+1-  
 INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply','ply');
 INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply2','ply2');
 INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply3','ply3');
