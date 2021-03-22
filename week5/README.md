@@ -72,7 +72,7 @@ ON website.user.id=website.message.user_id;
 ![image](https://user-images.githubusercontent.com/73087725/111961991-b5367900-8b2c-11eb-8cc9-86b0443be51f.png)
 
 
-2-
+2-  
 SELECT website.user.id,website.user.name,website.user.username,website.message.content,website.message.time   
 FROM website.user   
 LEFT JOIN website.message 
