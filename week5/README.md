@@ -23,3 +23,7 @@ INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply5','ply5');
   ORDER BY `time` DESC;
 ![image](https://user-images.githubusercontent.com/73087725/111947797-13596100-8b19-11eb-9795-0edb73f29c4c.png)
 
+6.SELECT * FROM `website`.`user` WHERE `username`='ply' ;
+
+![image](https://user-images.githubusercontent.com/73087725/111948060-8367e700-8b19-11eb-868e-53877734d92f.png)
+
