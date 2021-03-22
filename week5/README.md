@@ -1,11 +1,11 @@
 # assignment
 要求三
 1-   
-INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply','ply'); 
-INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply2','ply2'); 
-INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply3','ply3'); 
-INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply4','ply4'); 
-INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply5','ply5'); 
+INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply','ply');  
+INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply2','ply2');  
+INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply3','ply3');  
+INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply4','ply4');  
+INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply5','ply5');  
 
 ![image](https://user-images.githubusercontent.com/73087725/111946843-44389680-8b17-11eb-8607-d7198ac4abdf.png)
 
