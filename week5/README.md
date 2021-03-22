@@ -1,4 +1,5 @@
 # assignment
+要求三
 1-  
 INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply','ply');
 INSERT INTO `website`.`user`(`username`,`password`) VALUES('ply2','ply2');
@@ -60,5 +61,24 @@ DELETE  FROM `website`.`user`;
 
 ![image](https://user-images.githubusercontent.com/73087725/111949073-09d0f880-8b1b-11eb-88df-361c75f90f0e.png)
 
+要求四
+
+1-
+SELECT website.user.id,website.user.name,website.user.username,website.message.content,website.message.time 
+FROM website.user 
+LEFT JOIN website.message 
+ON website.user.id=website.message.user_id;
+
+![image](https://user-images.githubusercontent.com/73087725/111961991-b5367900-8b2c-11eb-8cc9-86b0443be51f.png)
+
+
+2-
+SELECT website.user.id,website.user.name,website.user.username,website.message.content,website.message.time 
+FROM website.user 
+LEFT JOIN website.message
+ON website.user.id=website.message.user_id 
+WHERE website.user.username='ply';
+
+![image](https://user-images.githubusercontent.com/73087725/111961929-9e902200-8b2c-11eb-8095-693c4b12bdb6.png)
 
 
