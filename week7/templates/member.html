@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member</title>
+</head>
+<style type="text/css">
+    header{
+        background-color: #E6E9EA ;
+        height: 30px;
+        padding: 10px;
+        line-height: 30px;
+        text-align: center;
+        /* position: fixed; */
+        width: 100%; 
+    }
+    body{
+        text-align: center;
+        height: 10px;
+    }
+
+</style>
+<body>
+    <header>
+    <div>歡迎光臨，這是會員頁</div>
+    </header>
+    <div>{{ name }}，歡迎您登入系統</div>
+    <a href="/signout">登出系統</a>
+    <hr>
+    <div>查詢會員姓名</div>
+    <div>
+        <input type="text"  name="username" id="searchContent">
+        <button  onclick="search()">查詢</button>
+        <div id="dataDisplay"></div>
+    </div>
+</body>
+
+<script type="text/javascript">
+
+function search(){   
+    var req=new XMLHttpRequest();
+    var username=document.getElementById("searchContent").value
+    req.open("get","/api/users?username="+username);
+    req.onload=function(){
+        dataDisplay=document.getElementById("dataDisplay");
+        var searchResult=JSON.parse(this.responseText);
+        // 查詢回傳的Data是否有資料
+        if (searchResult["data"]==null){
+            dataDisplay.textContent="查無此會員";
+            console.log("no");
+        }else{
+            text=searchResult["data"]["name"]+" ("+searchResult["data"]["username"]+")";
+            dataDisplay.textContent=text;
+            console.log("yes");
+            };    
+    };
+    req.send();   
+};
+
+</script>
+</html>
