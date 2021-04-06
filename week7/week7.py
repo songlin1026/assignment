@@ -17,7 +17,7 @@ connection=mysql.connector.connect(
     database='week6',
     charset='utf8')
 cursor=connection.cursor()
-cursor.execute("select * from week6.user ")  #執行SQL
+cursor.execute("select * from week6.user ")
 data=cursor.fetchall()
 username_arr=None
 password_password=None
