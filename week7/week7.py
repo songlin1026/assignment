@@ -32,17 +32,13 @@ def chage():
     changeData=json.loads(request.data.decode('utf-8'))
     changeContent=changeData["name"]
     member=session.get('username')
-    # 更新資料庫、session
-    cursor.execute("update week6.user set name= %s where name=%s",[changeContent,member])
-    connection.commit()
-    session['username'] = changeContent
-    # 確認是否更新資料成功、回傳結果
-    member=session.get('username')
-    cursor.execute("select name from week6.user where name=%s",[member])
-    check=cursor.fetchone()
-    if check!=None:
+    try:
+        # 更新資料庫、session
+        cursor.execute("update week6.user set name= %s where name=%s",[changeContent,member])
+        connection.commit()
+        session['username'] = changeContent
         return json.dumps({'ok':'true'})
-    else :
+    except:
         return json.dumps({'error':'true'})
 
 #查詢 api
