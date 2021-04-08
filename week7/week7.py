@@ -9,11 +9,11 @@ import mysql.connector
 import getpass
 
 #mysql.connector
-# password=getpass.getpass(prompt='請輸入資料庫密碼: ', stream=None)
+password=getpass.getpass(prompt='請輸入資料庫密碼: ', stream=None)
 connection=mysql.connector.connect(
     host="localhost",
     user="root",
-    password= "asdzxc980899",
+    password= password,
     database='week6',
     charset='utf8')
 cursor=connection.cursor()
