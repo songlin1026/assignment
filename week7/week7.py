@@ -9,15 +9,15 @@ import mysql.connector
 import getpass
 
 #mysql.connector
-password=getpass.getpass(prompt='請輸入資料庫密碼: ', stream=None)
+# password=getpass.getpass(prompt='請輸入資料庫密碼: ', stream=None)
 connection=mysql.connector.connect(
     host="localhost",
     user="root",
-    password= password,
+    password= "asdzxc980899",
     database='week6',
     charset='utf8')
 cursor=connection.cursor()
-cursor.execute("select * from week6.user ")
+cursor.execute("select * from week6.user ")  #執行SQL
 data=cursor.fetchall()
 username_arr=None
 password_password=None
@@ -26,25 +26,44 @@ password_password=None
 app=Flask(__name__,static_folder="public",static_url_path="/")
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
-#AJAX api
-@app.route("/api/users")
+#改名 api
+@app.route("/api/user",methods=["POST"])
+def chage():
+    changeData=json.loads(request.data.decode('utf-8'))
+    changeContent=changeData["name"]
+    member=session.get('username')
+    # 更新資料庫、session
+    cursor.execute("update week6.user set name= %s where name=%s",[changeContent,member])
+    connection.commit()
+    session['username'] = changeContent
+    # 確認是否更新資料成功、回傳結果
+    member=session.get('username')
+    cursor.execute("select name from week6.user where name=%s",[member])
+    check=cursor.fetchone()
+    if check!=None:
+        return json.dumps({'ok':'true'})
+    else :
+        return json.dumps({'error':'true'})
+
+#查詢 api
+@app.route("/api/users",methods=["GET"])
 def search():
-    searchAccount=request.args.get("username","")
-    cursor.execute("select * from week6.user where username=%s",[searchAccount])
-    memberData=cursor.fetchone()
-    # 查詢是否為會員
-    if memberData != None:
-        dataJson={"id":memberData[0],"name":memberData[1],"username":memberData[2]}
-        webData={"data":dataJson}
-        webData2=json.dumps(webData,indent=4,ensure_ascii=False)
-        return webData2
-        cursor.close()
-    else:
-        noneJson={}
-        noneData={"data":None}
-        noneData2=json.dumps(noneData,indent=4,ensure_ascii=False)
-        return noneData2
-        cursor.close()
+        searchAccount=request.args.get("username","")
+        cursor.execute("select * from week6.user where username=%s",[searchAccount])
+        memberData=cursor.fetchone()
+        # 查詢是否為會員
+        if memberData != None:
+            dataJson={"id":memberData[0],"name":memberData[1],"username":memberData[2]}
+            webData={"data":dataJson}
+            webData2=json.dumps(webData,indent=4,ensure_ascii=False)
+            return webData2
+            cursor.close()
+        else:
+            noneJson={}
+            noneData={"data":None}
+            noneData2=json.dumps(noneData,indent=4,ensure_ascii=False)
+            return noneData2
+            cursor.close()
 
 #首頁
 @app.route("/")

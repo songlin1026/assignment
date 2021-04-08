@@ -26,7 +26,8 @@
     <header>
     <div>歡迎光臨，這是會員頁</div>
     </header>
-    <div>{{ name }}，歡迎您登入系統</div>
+    <input type="hidden"  id="my_variable" value="{{ name }}">
+    <div id="title">{{ name }}，歡迎您登入系統</div>
     <a href="/signout">登出系統</a>
     <hr>
     <div>查詢會員姓名</div>
@@ -35,13 +36,43 @@
         <button  onclick="search()">查詢</button>
         <div id="dataDisplay"></div>
     </div>
+    <hr>
+    <div>更改我的姓名</div>
+    <div>
+        <input type="text"  name="changeUsername" id="changeContent">
+        <button  onclick="change()">更新</button>
+        <div id="changeResult"></div>
+    </div>
 </body>
 
 <script type="text/javascript">
 
+// 改名
+function change(){
+    var reqChange=new XMLHttpRequest();
+    var changeContent=document.getElementById("changeContent").value;
+    reqChange.open("post","/api/user");
+    reqChange.setRequestHeader('Content-Type','application/json;charset=UTF-8');
+    reqChange.onload=function(){
+        var changeReturn=JSON.parse(this.responseText);
+        var changeResult=document.getElementById("changeResult");
+        if(changeReturn["ok"]=="true"){
+            changeResult.textContent="更新成功";
+            var title=document.getElementById("title")
+            title.textContent=changeContent+"，歡迎您登入系統"
+        }else{
+            changeResult.textContent="更新失敗";
+        }
+    };
+    reqChange.send(JSON.stringify({"name":changeContent}));
+};
+
+
+
+// 查詢
 function search(){   
     var req=new XMLHttpRequest();
-    var username=document.getElementById("searchContent").value
+    var username=document.getElementById("searchContent").value;
     req.open("get","/api/users?username="+username);
     req.onload=function(){
         dataDisplay=document.getElementById("dataDisplay");
@@ -58,6 +89,8 @@ function search(){
     };
     req.send();   
 };
+
+
 
 </script>
 </html>
