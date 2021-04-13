@@ -55,6 +55,7 @@ var signupName=document.getElementById("signup_name")
 var signupAccount=document.getElementById("signup_account")
 var signupPassword=document.getElementById("signup_password")
 function signupChick(){
+    // 檢查使用者是否填寫註冊資料
     if(signupName.value==""|signupAccount.value==""|signupPassword.value==""){
         return alert("註冊資料欄位不能為空白")
     }
@@ -67,6 +68,7 @@ var sigin=document.getElementById("signin")
 var signinAccount=document.getElementById("signin_account")
 var signinPassword=document.getElementById("signin_password")
 function signinChick(){
+    // 檢查使用者是否填寫登入資料
     if (signinAccount.value==""|signinPassword.value==""){
         return alert("登入欄位不能是空白")
         }
