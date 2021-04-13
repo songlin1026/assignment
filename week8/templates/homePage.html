@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+</head>
+<style type="text/css">
+    header{
+        background-color: #E6E9EA ;
+        height: 30px;
+        padding: 10px;
+        line-height: 30px;
+        text-align: center;
+        width: 100%; 
+    }
+    body{
+        text-align: center;
+    }
+
+    button{
+        margin: 10px;
+    }
+
+    .title{
+        margin: 5px;
+    }
+
+</style>
+<body>
+    <header>
+    <div>歡迎光臨，請註冊登入系統</div>
+    </header>
+
+    <div class="title">註冊帳號</div>
+    <form action="/signup" method="POST" id="signup">
+        <div>姓名: <input type="text" name="signup_name" id="signup_name"></div>
+        <div>帳號: <input type="text" name="signup_account" id="signup_account"></div>
+        <div>密碼: <input type="password" name="signup_password" id="signup_password"></div>
+        <button type="button" onclick="signupChick()">註冊</button>
+    </form>
+
+<hr>
+    <div class="title">登入系統</div>
+    <form action="/signin" method="POST" id="signin">
+        <div>帳號: <input type="text" name="signin_account" id="signin_account"></div>
+        <div>密碼: <input type="password" name="signin_password" id="signin_password"></div>
+        <button type="button" onclick="signinChick()">登入</button>
+    </form>
+</body>
+<script type="text/javascript">
+var signup=document.getElementById("signup")
+var signupName=document.getElementById("signup_name")
+var signupAccount=document.getElementById("signup_account")
+var signupPassword=document.getElementById("signup_password")
+function signupChick(){
+    if(signupName.value==""|signupAccount.value==""|signupPassword.value==""){
+        return alert("註冊資料欄位不能為空白")
+    }
+    else{
+        return signup.submit()
+    }
+}
+
+var sigin=document.getElementById("signin")
+var signinAccount=document.getElementById("signin_account")
+var signinPassword=document.getElementById("signin_password")
+function signinChick(){
+    if (signinAccount.value==""|signinPassword.value==""){
+        return alert("登入欄位不能是空白")
+        }
+    else{
+        return signin.submit()
+        } 
+}
+
+</script>
+</html>
