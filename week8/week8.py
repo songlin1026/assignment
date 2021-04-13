@@ -80,9 +80,11 @@ def signup():
     signupName=request.form["signup_name"]
     signupAccount=request.form["signup_account"]
     signupPassword=request.form["signup_password"]
+    # 查詢前端傳來資料是否為空白
     if signupName==""or signupAccount==""or signupPassword=="":
         return redirect(url_for("error",message="資料欄位有空白無法註冊帳號"))
     else:
+        # 開始註冊
         cursor.execute("select * from week6.user where username=%s",[signupAccount])
         data=cursor.fetchone()
         if data == None :
@@ -100,12 +102,16 @@ def signup():
 def signin():
     signinAccount=request.form["signin_account"]
     signinPassword=request.form["signin_password"]
+    # 查詢前端傳來資料是否為空白
     if signinAccount=="" or signinPassword=="":
         return redirect(url_for("error",message="帳號或密碼不能為空白"))
     else:
+        # 開始登入
         cursor.execute("select * from week6.user where username=%s",[signinAccount])
         data=cursor.fetchone()
+        # 查詢資料庫是否有此帳號
         if data != None :
+            # 查詢使用者輸入的密碼是否與資料庫相符
             if data[3]== signinPassword :
                 resp=make_response(redirect(url_for("member")))
                 resp.set_cookie(key="week8",value=str(data[1]),expires=None)
@@ -122,6 +128,7 @@ def signin():
 #會員頁面
 @app.route("/member")
 def member():
+    # 檢查是否有登入過
     if request.cookies.get("week8") == None :
         return redirect("/")
         cursor.close()
@@ -133,7 +140,7 @@ def member():
 #登出頁面
 @app.route("/signout")
 def signout():
-    # session['username'] = False
+    # 登出並刪除cookie
     resp=make_response(render_template("signout.html"))
     resp.set_cookie(key="week8",value="",expires=0)
     return resp
@@ -141,6 +148,7 @@ def signout():
 #錯誤頁面
 @app.route("/error/")
 def error():
+    # 檢查是否為會員
     if request.cookies.get("week8") != None :
         member=request.cookies.get("week8")
         return redirect(url_for("member")) 
